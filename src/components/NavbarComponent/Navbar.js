@@ -191,7 +191,7 @@ export function NavbarDefault() {
         <div className="container mx-auto">
           {navList}
           {isLogin ? (
-            <Button className="bg-white px-4 py-2 text-center text-black">Logout</Button>
+            <Button className="bg-white px-4 py-2 text-center text-black" onClick={handleLogout}>Logout</Button>
           ) : (
             <Button
               variant="gradient"
