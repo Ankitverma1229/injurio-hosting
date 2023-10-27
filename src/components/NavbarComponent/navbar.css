@@ -1,0 +1,24 @@
+.user-profile-dropdown::before {
+    content: "";
+    position: absolute;
+    top: -0.6rem;
+    right: 4.1rem;
+    width: 20px;
+    height: 20px;
+    transform: rotate(50deg);
+    background-color: white;
+    border-left: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+}
+
+.nav-bg {
+    background: #111;
+	background: linear-gradient(#1b1b1b, #111);
+    box-shadow: 0px 0px 6px 2px #1b1b1b;
+  
+}
+
+.nav-item-bg {
+    background: #222;	
+	background: linear-gradient(#333, #222);	
+}
