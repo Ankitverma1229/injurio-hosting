@@ -17,7 +17,6 @@ const config = {
     baseURL: process.env.BASEURL,
     clientID: process.env.CLIENTID,
     issuerBaseURL: process.env.ISSUER,
-   
   }; 
 
 let parenDir = path.resolve(process.cwd(), ".");
