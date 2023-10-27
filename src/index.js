@@ -11,14 +11,6 @@ root.render(
     domain = "dev-4bzr4ii18q0upu4j.us.auth0.com"
     clientId = "YgbbQeASaeAVoR4OBOdqVc7VluWMgCdJ"
     redirectUri= 'https://main--dapper-llama-40540e.netlify.app/'
-  //   onRedirectCallback={(appState) => {
-  //   if (appState && appState.targetUrl) {
-  //     // Redirect to the target URL after login or logout
-  //     window.location.href = appState.targetUrl;
-  //   }
-  // }}
-
-
     >
     <App />
     </Auth0Provider>

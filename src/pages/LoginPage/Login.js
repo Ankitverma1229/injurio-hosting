@@ -105,7 +105,7 @@ const Login = () => {
   };
 
   const googleLoginHandler = async () => {
-    loginWithPopup();
+    // loginWithPopup();
   };
 
   useEffect(() => {
