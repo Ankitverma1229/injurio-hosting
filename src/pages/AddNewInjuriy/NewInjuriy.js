@@ -79,10 +79,13 @@ const NewInjury = () => {
     <div>
       <NavbarDefault />
       <div className="flex flex-col gap-5">
-        <div className="text-center py-5 h-20">
-          <span className="text-4xl border-b-4 border-b-yellow-700 text-yellow-700">
-            Add New Injury
+        <div className="text-center py-5 h-32 inline-flex flex-col gap-2">
+          <div>
+          <span className="inline-block text-4xl border-b-4 border-b-yellow-700 text-yellow-700">
+            Add New Injury 
           </span>
+          </div>
+          <span className="text-xl text-red-700">(Click on the area of body got injured and fill the form)</span>
         </div>
         <div className="h-[30rem] lg:w-[26%] mx-auto flex gap-10 p-4 justify-center relative">
           <div className="h-[90%] w-full">
