@@ -48,7 +48,7 @@ export function NavbarDefault() {
       confirmButtonText: "Yes, logout",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        // logout()
+        logout()
         sessionStorage.removeItem("loginItems");
         localStorage.removeItem("rememberData");
         if (!isAuthenticated) {
