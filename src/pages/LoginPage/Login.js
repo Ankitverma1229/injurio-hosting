@@ -7,7 +7,8 @@ import { FcGoogle } from "react-icons/fc";
 import axios from "axios";
 import Swal from "sweetalert2";
 import "./login.css";
-import Spinner from "../../components/Spinner/Spinner";
+// import Spinner from "../../components/Spinner/Spinner";
+import LoginSpinner from "../../components/Spinner/LoginSpinner.js";
 import { useAuth0 } from "@auth0/auth0-react";
 
 import "./login.css";
@@ -123,7 +124,7 @@ const Login = () => {
     <>
       {isLoading ? (
         <div className="h-[100vh] w-[100vw] flex justify-center items-center">
-          <Spinner />
+          <LoginSpinner />
         </div>
       ) : (
         <div className="flex justify-center py-8 my-5 w-[90vw] lg:w-[40vw] mx-auto bg-slate-100 rounded-lg">
