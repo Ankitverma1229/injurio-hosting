@@ -48,9 +48,9 @@ export function NavbarDefault() {
       confirmButtonText: "Yes, logout",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        logout()
+        // logout()
         sessionStorage.removeItem("loginItems");
-        localStorage.removeItem("rememberData");
+        // localStorage.removeItem("rememberData");
         if (!isAuthenticated) {
           navigate("/login");
         }
@@ -137,8 +137,8 @@ export function NavbarDefault() {
           </Button>
         )}
         {isOpenProfile && isLogin && (
-          <div className="user-profile-dropdown  flex  flex-col items-center absolute top-[11rem] md:top-[4.5rem] right-[25%] md:right-[1%]  lg:right-[8%] xl:right-[4%] 2xl:right-[5%] w-[10rem] rounded-md bg-white border border-gray-200 group-hover:block">
-            <ul className="menu-items flex flex-col gap-2 w-full py-1 text-center cursor-pointer ">
+          <div className="user-profile-dropdown -z-10 flex  flex-col items-center absolute top-[11rem] md:top-[4.5rem] right-[25%] md:right-[1%]  lg:right-[8%] xl:right-[4%] 2xl:right-[5%] w-[10rem] rounded-md bg-white border border-gray-200 group-hover:block">
+            <ul className="menu-items z-50 flex flex-col gap-2 w-full py-1 text-center cursor-pointer ">
               <li
                 className="menu-item p-2 hover:bg-blue-300 text-black"
                 onClick={handleLogout}
@@ -191,7 +191,12 @@ export function NavbarDefault() {
         <div className="container mx-auto">
           {navList}
           {isLogin ? (
-            <Button className="bg-white px-4 py-2 text-center text-black" onClick={handleLogout}>Logout</Button>
+            <Button
+              className="bg-white px-4 py-2 text-center text-black"
+              onClick={handleLogout}
+            >
+              Logout
+            </Button>
           ) : (
             <Button
               variant="gradient"

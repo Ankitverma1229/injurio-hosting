@@ -6,15 +6,14 @@ import { NavbarDefault } from "../../components/NavbarComponent/Navbar";
 import EditDataForm from "../../components/Data/EditDataForm";
 import SearchBar from "../../components/Data/SerachBar";
 import DataTable from "../../components/Data/DataTable";
-import Swal from 'sweetalert2';
-
+import Swal from "sweetalert2";
 
 const Data = () => {
   const [injuredData, setInjuredData] = useState([]);
   const [showEditForm, setShowEditForm] = useState(false);
   const [editingValue, setEditingValue] = useState(null);
   const [formDataArray, setFormDataArray] = useState([]);
-  const [searchValue, setSearchValue] = useState(""); 
+  const [searchValue, setSearchValue] = useState("");
   const [dateFilter, setDateFilter] = useState("");
   const [filteredData, setFilteredData] = useState([]);
 
@@ -54,8 +53,8 @@ const Data = () => {
       cancelButtonText: "No, cancel",
       confirmButtonColor: "#31A05D",
       cancelButtonColor: "#D33F49",
-    }).then(async(result)=>{
-      if(result.isConfirmed){
+    }).then(async (result) => {
+      if (result.isConfirmed) {
         try {
           const deleteData = await axios.delete(
             `https://injurio-server.onrender.com/injurio/deleteData/${id}`
@@ -64,18 +63,17 @@ const Data = () => {
             getInjuredData();
             Swal.fire({
               position: "center",
-                icon: "success",
-                showConfirmButton: false,
-                title: "Data deleted successfully!!",
-                timer: 1500,
+              icon: "success",
+              showConfirmButton: false,
+              title: "Data deleted successfully!!",
+              timer: 1500,
             });
           }
         } catch (error) {
           console.log(error);
         }
       }
-    })
-   
+    });
   };
 
   const updateDataHandler = async (e) => {
@@ -88,26 +86,26 @@ const Data = () => {
       if (updateData) {
         Swal.fire({
           position: "center",
-            icon: "success",
-            showConfirmButton: false,
-            title: "Data updated successfully!!",
-            timer: 1500,
+          icon: "success",
+          showConfirmButton: false,
+          title: "Data updated successfully!!",
+          timer: 1500,
         });
         getInjuredData();
         setShowEditForm(false);
         setEditingValue(null);
       }
-      
     } catch (error) {
       console.log(error);
     }
   };
 
-
   useEffect(() => {
     const filterData = () => {
       const filtered = injuredData.filter((item) => {
-        const nameMatch = item.name.toLowerCase().includes(searchValue.toLowerCase());
+        const nameMatch = item.name
+          .toLowerCase()
+          .includes(searchValue.toLowerCase());
         if (!dateFilter || dateFilter === "Custom Date") {
           return nameMatch;
         }
@@ -140,7 +138,7 @@ const Data = () => {
     <div>
       <NavbarDefault className="" />
       <div>
-        <div className="md:sticky z-40 bg-white top-[6.3rem] lg:top-[5.3rem] py-1 w-[80%] mx-auto rounded-md">
+        <div className="md:sticky -z-20 bg-white top-[6.3rem] lg:top-[5.3rem] py-1 w-[80%] mx-auto rounded-md">
           <h1 className="text-3xl text-[#21262C] my-5 text-center underline">
             Injured details
           </h1>
@@ -148,13 +146,13 @@ const Data = () => {
 
         {showEditForm ? null : (
           <SearchBar
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          dateFilter={dateFilter}
-          setDateFilter={setDateFilter}
-        />
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            dateFilter={dateFilter}
+            setDateFilter={setDateFilter}
+          />
         )}
-        
+
         {showEditForm ? null : (
           <DataTable
             injuredData={filteredData.length > 0 ? filteredData : injuredData}
@@ -162,7 +160,7 @@ const Data = () => {
             deleteDataHandler={deleteDataHandler}
           />
         )}
-                <form onSubmit={updateDataHandler}>
+        <form onSubmit={updateDataHandler}>
           {editingValue !== null && (
             <EditDataForm
               key={editingValue._id} // Assuming _id is a unique identifier for editingValue
