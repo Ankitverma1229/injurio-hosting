@@ -43,9 +43,10 @@ export const forgotPassword = asyncHandler(async (request, response) => {
           from: process.env.SMTP_MAIL,
           to: email,
           subject: "Sending email for password reset",
-          text: `This link is valid for 2 MINUTES http://localhost:3000/create-new-password/${existingUser._id}/${setUserToken.verifyToken} `,
+          text: `This link is valid for 5 MINUTES https://main--dapper-llama-40540e.netlify.app/create-new-password/${existingUser._id}/${setUserToken.verifyToken} `,
         };
       }
+      console.log(setUserToken)
 
       transportor.sendMail(mailOptions, (error, info) => {
         if (error) {
